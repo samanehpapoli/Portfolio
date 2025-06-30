@@ -1,0 +1,55 @@
+@import "./../../../styles.scss";
+
+section {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    width: $mainWidth;
+    margin: 100px $baseMarginLeftRight;
+    z-index: 20;
+
+    > div:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 80px;
+
+      > h2 {
+        font-family: "Baloo", "Courier New", Courier, monospace;
+        font-size: 96px;
+        font-weight: 400;
+        color: $primaryColor;
+
+        @media (max-width: 650px) {
+          font-size: 80px;
+        }
+
+        @media (max-width: 550px) {
+          font-size: 64px;
+        }
+
+        @media (max-width: 450px) {
+          font-size: 44px;
+        }
+      }
+      > p {
+        font-family: "Montserrat", "Courier New", Courier, monospace;
+        font-size: 23px;
+
+        @media (max-width: 450px) {
+          font-size: 16px;
+        }
+      }
+    }
+
+    > div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      gap: 130px;
+    }
+  }
+}

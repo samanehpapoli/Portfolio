@@ -1,0 +1,31 @@
+<header>
+  <div>
+    <div>
+      <a href="#">
+        <img [src]="'/img/logo/' + logoIcon" alt="logo">
+      </a>
+    </div>
+    <div>
+      <input type="checkbox" id="menuCheckbox" [checked]="isChecked" [(ngModel)]="isChecked" (ngModelChange)="onCheckedChanged()" />
+
+      <span [class.white]="isOtherPages"></span>
+      <span [class.white]="isOtherPages"></span>
+      <span [class.white]="isOtherPages"></span>
+
+      <div class="menu">
+        <a href="#aboutme" (click)="closeMenu();" [class.white]="isOtherPages">
+          <span>About me</span>
+        </a>
+        <a href="#skills" (click)="closeMenu();" [class.white]="isOtherPages">
+          <span>Skill Set</span>
+        </a>
+        <a href="#projects" (click)="closeMenu();" [class.white]="isOtherPages">
+          <span>My Work</span>
+        </a>
+        <a href="#contactme" (click)="closeMenu();" [class.white]="isOtherPages">
+          <span>Contact</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

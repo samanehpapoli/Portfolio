@@ -1,0 +1,44 @@
+@import "./../../../styles.scss";
+
+section {
+  background-color: $primaryColor;
+  display: flex;
+  justify-content: center;
+
+  > div {
+    width: $mainWidth;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 60px $baseMarginLeftRight 85px;
+
+    > h2 {
+      color: #fff;
+      font-family: "Baloo", "Courier New", Courier, monospace;
+      font-size: 96px;
+      font-weight: 400;
+
+      @media (max-width: 550px) {
+        font-size: 64px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 52px;
+      }
+    }
+    > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      column-gap: 125px;
+      row-gap: 45px;
+
+      > app-single-skill {
+        flex: 1;
+      }
+    }
+  }
+}
