@@ -32,13 +32,14 @@ export class HeaderComponent {
     if (this.routeName !== '') {
       this.isOtherPages = this.isChecked === true ? false : true;
     }
-
   }
 
   closeMenu() {
     if (this.isChecked === true) {
       setTimeout(() => {
         this.isChecked = false;
+        this.isOtherPages = this.routeName === '' && this.isChecked === false ? false : true;
+        this.onCheckedChanged();
       }, 100);
     }
   }

@@ -12,7 +12,15 @@
         <span>Need a Frontend developer? <b>Contact me!</b></span>
       </div>
 
-      <form #contactForm="ngForm">
+      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+
+        <p class="success" *ngIf="formIsSent">
+          Message has been send successfully.
+        </p>
+        <p class="error" *ngIf="formHasError">
+          Message not sent, please try again.
+        </p>
+
         <label for="name" [class.error]="!name.valid && name.touched" [class.tick]="name.valid">
           <input type="text" #name="ngModel" [(ngModel)]="contactData.name" name="name" id="name" placeholder="" required>
           <span class="placeholder">Your Name</span>
