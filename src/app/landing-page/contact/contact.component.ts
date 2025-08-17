@@ -4,6 +4,8 @@ import { BallComponent } from '../components/ball/ball.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -12,6 +14,9 @@ import { HttpClient } from '@angular/common/http';
     BallComponent,
     FormsModule,
     CommonModule,
+    TranslatePipe,
+    TranslateDirective,
+    RouterLink
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',

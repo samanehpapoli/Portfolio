@@ -1,0 +1,11 @@
+<section id="recommendations">
+    <div>
+        <h2 [translate]="'app.recommendations.title'"></h2>
+        <p [translate]="'app.recommendations.text'"></p>
+        <div>
+            @for (recommendation of recommendations; track $index) {
+            <app-single-recommendation [recommendation]="recommendation"></app-single-recommendation>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,26 @@
+div {
+    color: #fff;
+    font-family: "Montserrat", "Courier New", Courier, monospace;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 0 0 auto;
+    max-width: 350px;
+
+    >h3 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    >span {
+        font-size: 16px;
+    }
+
+    >p {
+        margin-top: 30px;
+        font-size: 18px;
+        white-space: normal;
+        word-break: break-word;
+    }
+}

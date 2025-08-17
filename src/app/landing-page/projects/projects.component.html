@@ -1,13 +1,13 @@
 <section id="projects">
   <div>
     <div>
-      <h2>My work</h2>
-      <p>Feel free to try out my latest development projects and look into their code.</p>
+      <h2 [translate]="'app.menu.projects'"></h2>
+      <p [innerHTML]="'app.projectText' | translate"></p>
     </div>
     <div>
 
       @for (project of projects; track $index) {
-        <app-single-project [singleProject]="project" [isEven]="$index % 2 !== 0"></app-single-project>
+      <app-single-project [singleProject]="project" [isEven]="$index % 2 !== 0"></app-single-project>
       }
 
     </div>

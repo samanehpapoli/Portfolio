@@ -5,7 +5,7 @@ section {
   justify-content: center;
   position: relative;
 
-  > div:nth-child(1) {
+  >div:nth-child(1) {
     display: flex;
     justify-content: space-between;
     width: $mainWidth;
@@ -18,15 +18,29 @@ section {
       align-items: center;
     }
 
-    > div:nth-child(1) {
+    >div:nth-child(1) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
       flex: 1;
 
-      > h2 {
+      >h2 {
         color: $primaryColor;
         font-weight: 400;
         font-family: "Baloo", "Courier New", Courier, monospace;
         font-size: 121px;
         line-height: 121px;
+        text-align: center;
+
+        @media (max-width: 1400px) {
+          text-align: left;
+        }
+
+        @media (max-width: 800px) {
+          text-align: center;
+        }
 
         @media (max-width: 900px) {
           font-size: 90px;
@@ -38,16 +52,102 @@ section {
           line-height: 74px;
         }
       }
+
+      >span {
+        color: $primaryColor;
+        font-weight: 400;
+        font-family: "Baloo", "Courier New", Courier, monospace;
+        font-size: 45px;
+        line-height: 45px;
+      }
+
+      >div {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+
+        @media (max-width: 1200px) {
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          width: auto;
+        }
+
+        >div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          position: relative;
+
+          >div {
+            width: 40px;
+            height: 50px;
+
+            &::before {
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+
+            &.locate::before {
+              content: url('/img/icons/locate.svg');
+            }
+
+            &.remote::before {
+              content: url('/img/icons/remote.svg');
+              top: -8px;
+              left: -20px;
+            }
+
+            &.relocate::before {
+              content: url('/img/icons/relocate.svg');
+            }
+          }
+
+          >span {
+            font-family: "Montserrat", "Courier New", Courier, monospace;
+            font-weight: 400;
+            font-size: 18px;
+            color: $primaryColor;
+          }
+
+          &:hover {
+            >div {
+              width: 40px;
+              height: 50px;
+
+              &.locate::before {
+                content: url('/img/icons/locate-hover.svg');
+                position: absolute;
+                top: -4px;
+              }
+
+              &.remote::before {
+                content: url('/img/icons/remote-hover.svg');
+                top: -16px;
+                left: -28px;
+              }
+
+              &.relocate::before {
+                content: url('/img/icons/relocate-hover.svg');
+              }
+            }
+          }
+        }
+      }
     }
 
-    > div:nth-child(2) {
+    >div:nth-child(2) {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
 
-      > p {
+      >p {
         font-family: "Montserrat", "Courier New", Courier, monospace;
         font-weight: 400;
         font-size: 23px;

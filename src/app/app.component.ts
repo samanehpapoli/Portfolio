@@ -3,19 +3,27 @@ import { Router, RouterOutlet, ActivatedRoute, NavigationEnd } from '@angular/ro
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { filter } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
     HeaderComponent,
-    FooterComponent,
+    FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private translate: TranslateService
+  ) {
+    this.translate.addLangs(['de', 'en']);
+    this.translate.setDefaultLang('en');
+  }
   currentRouteName: string | undefined;
 
   @ViewChild(HeaderComponent) child!: HeaderComponent;
@@ -35,5 +43,9 @@ export class AppComponent {
       activatedRoute = activatedRoute.firstChild;
     }
     return activatedRoute;
+  }
+
+  changeSiteLanguage(language: { title: string; value: string }): void {
+    this.translate.use(language.value);
   }
 }

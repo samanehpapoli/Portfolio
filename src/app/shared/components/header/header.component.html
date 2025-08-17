@@ -1,12 +1,13 @@
-<header>
+<header [class.fixed]="isFixed">
   <div>
     <div>
-      <a href="#">
+      <a href="#" (click)="closeMenu();">
         <img [src]="'/img/logo/' + logoIcon" alt="logo">
       </a>
     </div>
     <div>
-      <input type="checkbox" id="menuCheckbox" [checked]="isChecked" [(ngModel)]="isChecked" (ngModelChange)="onCheckedChanged()" />
+      <input type="checkbox" id="menuCheckbox" [checked]="isChecked" [(ngModel)]="isChecked"
+        (ngModelChange)="onCheckedChanged()" />
 
       <span [class.white]="isOtherPages"></span>
       <span [class.white]="isOtherPages"></span>
@@ -14,16 +15,23 @@
 
       <div class="menu">
         <a href="#aboutme" (click)="closeMenu();" [class.white]="isOtherPages">
-          <span>About me</span>
+          <span [title]="'app.menu.aboutme' | translate" [translate]="'app.menu.aboutme'"></span>
         </a>
         <a href="#skills" (click)="closeMenu();" [class.white]="isOtherPages">
-          <span>Skill Set</span>
+          <span [title]="'app.menu.skills' | translate" [translate]="'app.menu.skills'"></span>
         </a>
         <a href="#projects" (click)="closeMenu();" [class.white]="isOtherPages">
-          <span>My Work</span>
+          <span [title]="'app.menu.projects' | translate" [translate]="'app.menu.projects'"></span>
         </a>
         <a href="#contactme" (click)="closeMenu();" [class.white]="isOtherPages">
-          <span>Contact</span>
+          <span [title]="'app.menu.contactme' | translate" [translate]="'app.menu.contactme'"></span>
+        </a>
+        <a class="language" [class.white]="isOtherPages">
+          <span>
+            <span (click)="changeLanguage()" [class.active]="selectedLanguage === 1">DE</span>
+            /
+            <span (click)="changeLanguage()" [class.active]="selectedLanguage === 0">EN</span>
+          </span>
         </a>
       </div>
     </div>

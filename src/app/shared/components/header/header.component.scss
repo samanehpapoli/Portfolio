@@ -11,18 +11,24 @@ header {
   font-family: "Montserrat", "Courier New", Courier, monospace;
   transition: all 0.2s ease;
 
+  &.fixed {
+    position: fixed;
+    background: rgb(89 136 255 / 90%);
+    z-index: 200;
+  }
+
   @media (max-width: 1250px) {
     z-index: 100;
   }
 
-  > div {
+  >div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: $mainWidth;
     margin: 25px $baseMarginLeftRight;
 
-    > div:nth-child(1) {
+    >div:nth-child(1) {
       img {
         z-index: 101;
         position: relative;
@@ -38,9 +44,10 @@ header {
       }
     }
 
-    > div:nth-child(2) {
+    >div:nth-child(2) {
       position: relative;
-      > input {
+
+      >input {
         display: none;
         width: 40px;
         height: 32px;
@@ -58,7 +65,7 @@ header {
         }
       }
 
-      > span {
+      >span {
         display: none;
         width: 32px;
         height: 2px;
@@ -84,36 +91,37 @@ header {
           background: #ffffff;
         }
       }
-      > span:nth-child(2) {
+
+      >span:nth-child(2) {
         transform-origin: 0% 0%;
       }
 
-      > span:nth-child(4) {
+      >span:nth-child(4) {
         transform-origin: 0% 100%;
       }
 
-      > input:checked ~ span {
+      >input:checked~span {
         opacity: 1;
         background: $primaryColor;
         transform: rotate(45deg) translate(2px, 2px);
       }
 
-      > input:checked ~ .menu {
+      >input:checked~.menu {
         @media (max-width: 1250px) {
           transform: none;
         }
       }
 
-      > input:checked ~ span:nth-child(3) {
+      >input:checked~span:nth-child(3) {
         opacity: 0;
         transform: rotate(0deg) scale(0.2, 0.2);
       }
 
-      > input:checked ~ span:nth-child(4) {
+      >input:checked~span:nth-child(4) {
         transform: rotate(-45deg) translate(0, -1px);
       }
 
-      > div {
+      >div {
         display: flex;
         gap: 36px;
         align-items: center;
@@ -140,21 +148,65 @@ header {
         a {
           color: $primaryColor;
           text-decoration: none;
+          display: inline-block;
 
           &.white {
             color: white;
           }
 
-          > span {
-            font-size: 23px;
-            white-space: nowrap;
-            transition: all 0.2s ease-in-out;
-            cursor: pointer;
-            display: inline-block;
+          &.language {
+            cursor: default;
           }
 
-          &:hover span {
+          >span {
+            font-size: 23px;
+            white-space: nowrap;
+            transition: all 0.1s ease-in-out;
+            cursor: pointer;
+            display: inline-block;
+
+            &::before {
+              display: block;
+              content: attr(title);
+              font-weight: bold;
+              height: 0;
+              overflow: hidden;
+              visibility: hidden;
+            }
+
+            >span {
+              cursor: pointer;
+              transition: all 0.1s ease-in-out;
+
+              &:nth-child(1) {
+                margin-right: 6px;
+              }
+
+              &:nth-child(2) {
+                margin-left: 6px;
+              }
+
+              &:hover {
+                font-weight: bold;
+              }
+
+              &.active {
+                border-bottom: solid 3px;
+                font-weight: bold;
+              }
+            }
+          }
+
+          &:hover>span {
             font-weight: bold;
+          }
+
+          &.language>span {
+            cursor: default;
+          }
+
+          &.language:hover>span {
+            font-weight: normal;
           }
         }
       }

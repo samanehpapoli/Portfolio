@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { RecommendationsComponent } from "./recommendations/recommendations.component";
 
 @Component({
   selector: 'app-landing-page',
@@ -13,8 +14,9 @@ import { ProjectsComponent } from './projects/projects.component';
     SkillsComponent,
     ProjectsComponent,
     ContactComponent,
+    RecommendationsComponent
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
 })
-export class LandingPageComponent {}
+export class LandingPageComponent { }

@@ -1,11 +1,11 @@
 @import "./../../../styles.scss";
 
 section {
-  background-color: $primaryColor;
+  background: linear-gradient(145deg, $primaryColor 40%, $secondaryColor);
   display: flex;
   justify-content: center;
 
-  > div {
+  >div {
     width: $mainWidth;
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@ section {
     gap: 25px;
     margin: 60px $baseMarginLeftRight 85px;
 
-    > h2 {
+    >h2 {
       color: #fff;
       font-family: "Baloo", "Courier New", Courier, monospace;
       font-size: 96px;
@@ -28,7 +28,8 @@ section {
         font-size: 52px;
       }
     }
-    > div {
+
+    >div {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,7 +37,7 @@ section {
       column-gap: 125px;
       row-gap: 45px;
 
-      > app-single-skill {
+      >app-single-skill {
         flex: 1;
       }
     }

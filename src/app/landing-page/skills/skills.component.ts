@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { SingleSkillComponent } from './single-skill/single-skill.component';
+import { TranslateDirective } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-skills',
-  imports: [SingleSkillComponent],
+  imports: [SingleSkillComponent, TranslateDirective],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
 })
@@ -48,6 +49,10 @@ export class SkillsComponent {
     {
       name: 'Material design',
       image: 'mt.svg',
+    },
+    {
+      name: 'Growth mindset',
+      image: 'minset.svg',
     },
   ];
 }

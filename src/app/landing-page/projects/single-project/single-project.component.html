@@ -8,11 +8,14 @@
     <h3>{{singleProject.name}}</h3>
     <div>
       @for (tool of singleProject.tools; track $index; let last = $last) {
-        {{tool}} @if (!last) {|}
+      {{tool}} @if (!last) {|}
       }
     </div>
-    <p>{{singleProject.description}}</p>
+    <p [innerHTML]="singleProject.description | translate"></p>
     <div>
+      <a [href]="singleProject.link" target="_blank">
+        <app-primary-button [buttonText]="'Live test'" [isColorSolid]="true"></app-primary-button>
+      </a>
       <a [href]="singleProject.github" target="_blank">
         <app-primary-button [buttonText]="'Github'"></app-primary-button>
       </a>
