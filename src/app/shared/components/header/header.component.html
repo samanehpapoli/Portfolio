@@ -14,16 +14,16 @@
       <span [class.white]="isOtherPages"></span>
 
       <div class="menu">
-        <a href="#aboutme" (click)="closeMenu();" [class.white]="isOtherPages">
+        <a href="#" (click)="scrollToElementWithOffset($event, 'aboutme');closeMenu();" [class.white]="isOtherPages">
           <span [title]="'app.menu.aboutme' | translate" [translate]="'app.menu.aboutme'"></span>
         </a>
-        <a href="#skills" (click)="closeMenu();" [class.white]="isOtherPages">
+        <a href="#" (click)="scrollToElementWithOffset($event, 'skills');closeMenu();" [class.white]="isOtherPages">
           <span [title]="'app.menu.skills' | translate" [translate]="'app.menu.skills'"></span>
         </a>
-        <a href="#projects" (click)="closeMenu();" [class.white]="isOtherPages">
+        <a href="#" (click)="scrollToElementWithOffset($event, 'projects');closeMenu();" [class.white]="isOtherPages">
           <span [title]="'app.menu.projects' | translate" [translate]="'app.menu.projects'"></span>
         </a>
-        <a href="#contactme" (click)="closeMenu();" [class.white]="isOtherPages">
+        <a href="#" (click)="scrollToElementWithOffset($event, 'contactme');closeMenu();" [class.white]="isOtherPages">
           <span [title]="'app.menu.contactme' | translate" [translate]="'app.menu.contactme'"></span>
         </a>
         <a class="language" [class.white]="isOtherPages">

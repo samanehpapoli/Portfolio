@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, HostListener, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-header',
-  imports: [FormsModule, CommonModule, TranslateDirective, TranslatePipe, RouterLink],
+  imports: [FormsModule, CommonModule, TranslateDirective, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -37,6 +38,18 @@ export class HeaderComponent {
     title: string;
     value: string;
   }>();
+
+  constructor(private router: Router) {
+    // Listen for navigation end to catch when coming back to index
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      const fragment = window.location.hash.substring(1);
+      if (fragment) {
+        setTimeout(() => this.scrollToElement(fragment), 100); // Delay to ensure element is loaded
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.loadSelectedLanguage();
@@ -104,5 +117,29 @@ export class HeaderComponent {
   checkScrollPosition() {
     this.isFixed = window.scrollY > 600 ? true : this.isChecked;
     this.isOtherPages = this.isChecked ? false : this.isFixed || this.routeName !== '';
+  }
+
+  scrollToElementWithOffset(event: Event, targetId: string) {
+    event.preventDefault();
+
+    const isIndexPage = this.router.url === '/' || this.router.url.startsWith('/#');
+    if (isIndexPage) {
+      this.router.navigate([], { fragment: targetId, replaceUrl: true });
+      this.scrollToElement(targetId);
+    } else {
+      this.router.navigate(['/'], { fragment: targetId });
+    }
+  }
+
+  scrollToElement(targetId: string) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const targetPosition =
+        targetElement.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: targetPosition - 120,
+        behavior: 'smooth',
+      });
+    }
   }
 }

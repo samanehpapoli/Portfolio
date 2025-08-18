@@ -6,13 +6,13 @@ section {
   background: linear-gradient(#ffffff, $shadowColor);
   position: relative;
 
-  > div {
+  >div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
     width: $mainWidth;
-    margin: 50px $baseMarginLeftRight;
+    margin: 50px 30px;
     gap: 70px;
     position: relative;
 
@@ -20,8 +20,8 @@ section {
       gap: 20px;
     }
 
-    > div:nth-child(1) {
-      > h2 {
+    >div:nth-child(1) {
+      >h2 {
         font-family: "Baloo", "Courier New", Courier, monospace;
         font-weight: 400;
         font-size: 90px;
@@ -33,16 +33,16 @@ section {
       }
     }
 
-    > div:nth-child(2) {
+    >div:nth-child(2) {
       display: flex;
       gap: 150px;
 
       @media (max-width: 700px) {
-        gap: 30px;
+        gap: 60px;
         flex-direction: column;
       }
 
-      > div:nth-child(1) {
+      >div:nth-child(1) {
         width: 35%;
         font-family: "Montserrat", "Courier New", Courier, monospace;
 
@@ -50,7 +50,7 @@ section {
           width: 100%;
         }
 
-        > h3 {
+        >h3 {
           font-size: 32px;
           font-weight: 700;
           color: $primaryColor;
@@ -61,16 +61,16 @@ section {
           }
         }
 
-        > p {
+        >p {
           font-size: 16px;
           margin-bottom: 25px;
         }
 
-        > span {
+        >span {
           font-size: 16px;
           color: $primaryColor;
 
-          > b {
+          >b {
             font-family: "Baloo", "Courier New", Courier, monospace;
             font-weight: 400;
             font-size: 19px;
@@ -78,29 +78,34 @@ section {
         }
       }
 
-      > form {
+      >form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         flex: 1;
         z-index: 20;
+        position: relative;
 
-        > p {
+        >p {
           font-family: "Montserrat", "Courier New", Courier, monospace;
           text-align: center;
           margin-bottom: 30px;
           font-weight: bold;
+          position: absolute;
+          top: -50px;
+          right: 0;
+          left: 0;
         }
 
-        > p.success {
+        >p.success {
           color: green;
         }
 
-        > p.error {
+        >p.error {
           color: red;
         }
 
-        > label {
+        >label {
           position: relative;
           display: flex;
           margin-bottom: 35px;
@@ -111,8 +116,8 @@ section {
             top: 12px;
           }
 
-          > input,
-          > textarea {
+          >input,
+          >textarea {
             border-radius: 10px;
             border: solid 1px $primaryColor;
             padding: 15px 25px;
@@ -132,12 +137,12 @@ section {
             }
           }
 
-          > textarea {
+          >textarea {
             height: 202px;
             resize: none;
           }
 
-          > span.placeholder {
+          >span.placeholder {
             position: absolute;
             top: 15px;
             left: 25px;
@@ -147,43 +152,44 @@ section {
             pointer-events: none;
           }
 
-          > input:focus + span.placeholder,
-          > textarea:focus + span.placeholder,
-          > input:not(:placeholder-shown) + span.placeholder,
-          > textarea:not(:placeholder-shown) + span.placeholder {
+          >input:focus+span.placeholder,
+          >textarea:focus+span.placeholder,
+          >input:not(:placeholder-shown)+span.placeholder,
+          >textarea:not(:placeholder-shown)+span.placeholder {
             top: -9px;
           }
         }
 
-        > label:nth-child(3) {
+        >label:nth-child(3) {
           margin-bottom: 30px;
         }
 
-        > label.error {
+        >label.error {
           &::after {
             content: url(/img/icons/error.svg);
           }
         }
 
-        > label.tick {
+        >label.tick {
           &::after {
             content: url(/img/icons/tick.svg);
           }
         }
 
-        > div {
+        >div {
           margin-bottom: 40px;
-          > label {
+
+          >label {
             font-family: "Montserrat", "Courier New", Courier, monospace;
             font-size: 14px;
             position: relative;
             cursor: pointer;
 
-            > input {
+            >input {
               display: none;
             }
 
-            > span:nth-child(2) {
+            >span:nth-child(2) {
               &::before {
                 content: url("/img/icons/check-box-outline-blank.svg");
                 position: absolute;
@@ -192,38 +198,38 @@ section {
               }
             }
 
-            > input:checked + span:nth-child(2) {
+            >input:checked+span:nth-child(2) {
               &::before {
                 content: url("/img/icons/check-box.svg");
               }
             }
 
-            &:hover + p > a {
+            &:hover+p>a {
               text-decoration: underline;
               color: $secondaryColor;
               font-weight: 700;
             }
 
-            &:hover > span:nth-child(2) {
+            &:hover>span:nth-child(2) {
               &::before {
                 content: url("/img/icons/check-box-outline-blank-hover.svg");
               }
             }
 
-            &:hover > input:checked + span:nth-child(2) {
+            &:hover>input:checked+span:nth-child(2) {
               &::before {
                 content: url("/img/icons/check-box-hover.svg");
               }
             }
           }
 
-          > p {
+          >p {
             position: relative;
             left: 30px;
             font-family: "Montserrat", "Courier New", Courier, monospace;
             font-size: 14px;
 
-            > a {
+            >a {
               color: $primaryColor;
               text-decoration: none;
 
@@ -236,7 +242,7 @@ section {
           }
         }
 
-        > app-primary-button {
+        >app-primary-button {
           text-align: center;
         }
 
@@ -257,7 +263,7 @@ section {
       }
     }
 
-    > a {
+    >a {
       width: 40px;
       height: 40px;
       background-color: transparent;

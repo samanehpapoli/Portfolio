@@ -27,7 +27,7 @@
 
         <label for="email" [class.error]="!email.valid && email.touched" [class.tick]="email.valid">
           <input type="email" #email="ngModel" [(ngModel)]="contactData.email" name="email" id="email" placeholder=""
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required>
           <span class="placeholder" [translate]="'app.contactForm.email'"></span>
           <span class="error" [class.show]="!email.valid && email.touched"
             [translate]="'app.contactForm.emailValidation'"></span>
